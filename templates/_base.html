@@ -1,5 +1,3 @@
-<!-- templates/_base.html -->
-
 {% load compress %}
 {% load static %}
 
@@ -17,8 +15,12 @@
     {% endcompress %}
 
 </head>
+
+<body class="bg-green-50">
 {% include 'head-banner.html' %}
-<header class="sticky top-0 z-50">{% include 'header.html' %}</header>
+<header class="sticky top-0 z-50">
+  {% include 'header.html' %}
+</header>
 
 <div class="drawer lg:drawer-open my-10 ">
 
@@ -28,12 +30,8 @@
       {% endblock content %}
       {% include 'footer.html' %}
     </div> 
-    {% comment %} <div class="drawer-side lg:drawer-open"> {% endcomment %}
         {% include 'sidebar.html' %}
-    {% comment %} </div> {% endcomment %}
   </div>
-<body class="bg-green-50">
 
 </body>
-
 </html>
