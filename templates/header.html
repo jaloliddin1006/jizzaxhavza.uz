@@ -1,3 +1,5 @@
+{% load mptt_tags %}
+{% load static %}
 
 <div class="navbar drawer glass  z-5 ">
   <figure><img src="/images/stock/photo-1606107557195-0e29a4b5b4aa.jpg" alt="Shoes" /></figure>
@@ -21,21 +23,36 @@
     </div>
     <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
   </div>
-  <div class="navbar-center hidden lg:flex">
-    <ul class="menu menu-horizontal px-1">
-      <li><a>Item 1</a></li>
-      <li tabindex="0">
-        <details>
-          <summary>Parent</summary>
-          <ul class="p-2">
-            <li><a>Submenu 1</a></li>
-            <li><a>Submenu 2</a></li>
-          </ul>
-        </details>
-      </li>
-      <li><a>Item 3</a></li>
-    </ul>
-  </div>
+
+
+<div class="navbar-center hidden lg:flex">
+  <ul class="menu menu-horizontal px-1">
+    {% for category in navbar_categories %}
+
+    <li tabindex="0">
+
+      {% if category.has_children %}
+      <details>
+        <summary>{{ category.name }}</summary>
+        <ul class="p-2">
+          {% recursetree category.get_children %}
+          <li>
+            <a href="{% url 'app:post' node.article_id %}">{{ node.name }}</a>
+          </li>
+          {% endrecursetree %}
+        </ul>
+      </details>
+
+      {% elif category.is_root  %}
+      <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+      {% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+  
+
   <div class="navbar-end ">
     <a class="btn ">Button</a>
   </div>
