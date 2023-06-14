@@ -11,7 +11,7 @@ class ArticleAdmin(admin.ModelAdmin):
         models.TextField: {'widget': CKEditorWidget}
     }
 
-    list_display = ['title', 'date']
+    list_display = ['title', 'category', 'date']
     inlines = [ArticleImageInline]
     
     

@@ -32,6 +32,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mptt',
     # libs
+    'imagekit',
         'ckeditor',
     'compressor',
     
@@ -65,6 +66,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                #### hamma pageda ishga tushuvchi func
+                'navbar.views.all_page_categories'
             ],
         },
     },

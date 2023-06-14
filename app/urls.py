@@ -1,6 +1,10 @@
-from .views import index
+from .views import index, article, CategoryView
+from django.urls import path
 
+
+
+app_name = "app"
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', index, name='index')
+    path("", index, name='index'),
+    path("i/<int:id>", CategoryView.as_view(), name='post'),
 ]
