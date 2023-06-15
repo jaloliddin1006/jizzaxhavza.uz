@@ -3,9 +3,14 @@
 
 <ul class="menu bg-base-200 w-56 rounded-box mx-5 ">
   {% for category in sidebar_categories %}
+  
+  <li style="font-size:20px" class="m-28">
 
-  <li style="font-size:17px" class="m-28">
-
+    {% if category.icon %}
+    <img src="{{ category.icon.url }}" style="width:50px" alt=" icon">
+    {% endif %}
+  
+  
     {% if category.has_children %}
     <details open>
       <summary>{{ category.name }}</summary>
@@ -24,16 +29,11 @@
 
     {% elif category.is_root  %}
 
-    <h3>
-
       <a href="{{ category.get_absolute_url }}">
-        {% if category.icon %}
-        <img src="{{ category.icon.url }}" style="width:50px" alt=" icon">
-        {% endif %}
+        
 
         {{ category.name }}</a>
     </h3>
-
     {% endif %}
   </li>
   {% endfor %}

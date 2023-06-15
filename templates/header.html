@@ -26,7 +26,7 @@
 
 
 <div class="navbar-center hidden lg:flex">
-  <ul class="menu menu-horizontal px-1">
+  <ul class="menu menu-horizontal px-1" style="font-size:20px" >
     {% for category in navbar_categories %}
 
     <li tabindex="0">
@@ -44,7 +44,7 @@
       </details>
 
       {% elif category.is_root  %}
-      <a href="{{ category.get_absolute_url }}">{{ category.name }}</a>
+      <a href="{% url 'app:post' category.article_id %}">{{ category.name }}</a>
       {% endif %}
     </li>
     {% endfor %}
