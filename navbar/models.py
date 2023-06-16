@@ -12,7 +12,7 @@ class NavbarCategory(MPTTModel):
     )
     ordered = models.IntegerField( null=True, blank=True)
     status = models.CharField(choices=STATUS, max_length=100, default='navbar')
-    article = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE)
+    article = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE, blank=True, null=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     name = models.CharField(max_length=100)
     icon = models.ImageField(upload_to='icon/', null=True, blank=True)

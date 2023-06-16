@@ -4,13 +4,15 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
   content: [
       './templates/**/*.html',
+      "./node_modules/flowbite/**/*.js",
+
   ],
   theme: {
     extend: {},
   },
-  plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  plugins: [require("@tailwindcss/typography"), require("daisyui"), require('flowbite/plugin')],
   daisyui: {
-    themes: false, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
+    themes: true, // true: all themes | false: only light + dark | array: specific themes like this ["light", "dark", "cupcake"]
     darkTheme: "dark", // name of one of the included themes for dark mode
     base: true, // applies background color and foreground color for root element by default
     styled: true, // include daisyUI colors and design decisions for all components
