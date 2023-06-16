@@ -3,7 +3,6 @@
 {% extends "_base.html" %}
 
 {% block content %}
-<<<<<<< HEAD
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -27,14 +26,7 @@
         <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img src="https://daisyui.com//images/stock/photo-1665553365602-b2fb8e5d1707.jpg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
         </div>
-=======
-<div class="hero min-h-screen bg-base-200">
-  <div class="hero-content text-center">
-    <div class="max-w-md">
-      <h1 class="text-5xl font-bold"></h1>
-      <p class="py-6">Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda excepturi exercitationem quasi. In deleniti eaque aut repudiandae et a id nisi.</p>
-      <button class="btn btn-primary">Get Started</button>
->>>>>>> f59dbce0e0a35d9c0a78774f5715afa66aea5de3
+
     </div>
     <!-- Slider indicators -->
     <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
@@ -66,7 +58,7 @@
     {% for i in articles %}
 
     <a href="/i/1/{{i.id}}" class="flex bg-white border border-gray-200 rounded-lg shadow md:flex-row mt-2 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="{{ i.image }}" alt="">
+        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="{{ i.articleimage_set.all.first.image.url }}" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{i.title}}</h5>
             <h6 class="mb-2 text-3l tracking-tight text-gray-900 dark:text-white"><div class="flex">{{i.date|date:"d M Y"}} | &nbsp;<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">

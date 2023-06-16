@@ -7,3 +7,4 @@ environs==9.5.0
 django-crispy-forms
 crispy-bootstrap5
 django-imagekit
+aiogram
