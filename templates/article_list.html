@@ -17,7 +17,7 @@
         {% endif %}
         <div class="card-body">
             <h6 class="align-center card-title">{{ i.title }}</h6>
-            <span class="center card-text">{{ i.description }} $</span>
+            <span class="center card-text">{{ i.description| safe }} $</span>
             <div class="buttons d-flex flex-wrap justify-content-between ">
                 <i class="bi bi-bookmark-fill"></i> 
                 <a href="{% url 'app:detail' category_id=i.category.id id=i.id %}" class="btn btn-outline-primary" >Details</a>
