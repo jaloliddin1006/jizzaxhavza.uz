@@ -9,12 +9,14 @@ from navbar.models import Contact
 import datetime
 import  subprocess
 from app import bot
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
 
 
 class CategoryView(View):
+    
     def get(self, request, id):
         # articles = get_object_or_404(Article, category = id)
         articles = Article.objects.filter(category=id)
@@ -40,14 +42,15 @@ class CategoryView(View):
             form = ContactForm(data=request.POST)
             if form.is_valid():
                 data1 = form.save(request)
+                print("==========================================", request)
                 
-                messages.success(request,"Xabaringiz adminga yuborildi. XAbaringiz uchun rahmat.")
+                messages.success(request,"Xabaringiz adminga yuborildi. Xabaringiz uchun rahmat.")
                 print("==========================================", request)
                 
                 # # data = request.data
-                print("==========================================", data1.name)
-                data = Contact.objects.get(name=data1.name)
-               
+                print("==========================================", data1.id)
+                data = Contact.objects.get(id=int(data1.id))
+                print(data)
               
                 today = datetime.date.today()
                 formatted_date = today.strftime("%Y-%m-%d")
@@ -59,17 +62,19 @@ class CategoryView(View):
         🧑🏻‍💻 Xabar: {data.body}
         📅 Sana: {formatted_date}
         """
-                with open('api/data.txt', 'w') as file:
+                with open('app/data.txt', 'w') as file:
                     file.write(str(text))
 
                     
                 try:
                     # tg_bot.run_bot()
+                   
                     subprocess.run(['python', 'app/bot.py'])
+                    
                 except Exception as e:
                     print(f"============================ Error executing the script: {e}")
 
-                print(" ========================== contact create view  another_function ================================")
+             
         
                 return redirect("app:index")
             return render(request, "article_list.html", {"form":form})
