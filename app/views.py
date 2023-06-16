@@ -20,6 +20,7 @@ class IndexView(View):
         category_id = ArticleCategory.objects.get(name="Yangiliklar")
         articles = Article.objects.filter(category=category_id)
         article = Article.objects.filter(category=category_id)[len(articles)-1]
+        articles = articles[0:4]
         context = {
                 'articles':articles,
                 'article':article,
@@ -44,6 +45,7 @@ class CategoryView(View):
             context = {
                 '_id':id,
                 'articles':articles,
+                'article':article,
                 }
             return render(request, 'article_list.html', context)
         
