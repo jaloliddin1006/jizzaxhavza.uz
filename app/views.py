@@ -14,7 +14,16 @@ from app import bot
 def index(request):
     return render(request, 'index.html')
 
-
+class IndexView(View):
+    def get(self, request):
+        category_id = ArticleCategory.objects.get(name="Yangiliklar")
+        articles = Article.objects.filter(category=category_id)[0:3]
+        context = {
+                'articles':articles,
+                }
+        return render(request, 'index.html', context)
+        
+        
 class CategoryView(View):
     
     def get(self, request, id):
