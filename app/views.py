@@ -18,9 +18,11 @@ def index(request):
 class IndexView(View):
     def get(self, request):
         category_id = ArticleCategory.objects.get(name="Yangiliklar")
-        articles = Article.objects.filter(category=category_id)[0:3]
+        articles = Article.objects.filter(category=category_id)
+        article = Article.objects.filter(category=category_id)[len(articles)-1]
         context = {
                 'articles':articles,
+                'article':article,
                 }
         return render(request, 'index.html', context)
         
