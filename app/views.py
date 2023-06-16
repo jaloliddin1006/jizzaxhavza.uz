@@ -6,7 +6,8 @@ from document.models import Article, ArticleImage, ArticleCategory
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    objs = Article.objects.filter(category=1)
+    return render(request, 'index.html', context={'articles' : objs})
 
 
 class CategoryView(View):

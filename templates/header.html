@@ -42,32 +42,35 @@
 
 
   
-<div class="navbar-center hidden lg:flex">
-  <ul class="menu menu-horizontal px-1" style="font-size:20px" >
+  <div class="navbar-center hidden lg:flex">
+    <ul class="menu menu-horizontal px-1" style="font-size:20px">
+  
+      {% for category in navbar_categories %}
+  
+      <li tabindex="0">
+  
+        {% if category.has_children %}
+        <details class="submenu">
+          <summary>{{ category.name }}</summary>
+          <ul class="p-2">
+            {% recursetree category.get_children %}
+            <li>
+              <a href="{% url 'app:post' node.article_id %}">{{ node.name }}</a>
+            </li>
+            {% endrecursetree %}
+          </ul>
+        </details>
+  
+        {% elif category.is_root  %}
+        <a href="{% url 'app:post' category.article_id %}">{{ category.name }}</a>
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
 
-    {% for category in navbar_categories %}
-
-    <li tabindex="0">
-
-      {% if category.has_children %}
-      <details>
-        <summary>{{ category.name }}</summary>
-        <ul class="p-2">
-          {% recursetree category.get_children %}
-          <li>
-            <a href="{% url 'app:post' node.article_id %}">{{ node.name }}</a>
-          </li>
-          {% endrecursetree %}
-        </ul>
-      </details>
-
-      {% elif category.is_root  %}
-      <a href="{% url 'app:post' category.article_id %}">{{ category.name }}</a>
-      {% endif %}
-    </li>
-    {% endfor %}
-  </ul>
-</div>
+  
 
   
 
