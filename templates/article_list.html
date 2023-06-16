@@ -2,40 +2,55 @@
 {% load static %}
 
 {% block content %}
+<script src="https://unpkg.com/tailwindcss-jit-cdn"></script>
+
+<section class="flex flex-col justify-center antialiased bg-gray-900 text-gray-200 min-h-screen my-5">
   {% for i in articles %}
-  <div class="relative flex w-96 flex-col rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
-    <div class="relative mx-4 mt-4 h-96 overflow-hidden rounded-xl bg-white bg-clip-border text-gray-700">
-      <img
-        src="{{ i.articleimage_set.all.first.image.url }}"
-        class="h-full w-full object-cover"
-      />
+
+     
+
+<!-- Snippet -->
+<div class="max-w-6xl mx-auto p-4 sm:px-6 h-full">
+
+      <!-- Blog post -->
+      <article class="max-w-sm mx-auto md:max-w-none grid md:grid-cols-2 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-center">
+          <a class="relative block group" href="#0">
+              <div class="absolute inset-0 bg-gray-800 hidden md:block transform md:translate-y-2 md:translate-x-4 xl:translate-y-4 xl:translate-x-8 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out pointer-events-none" aria-hidden="true"></div>
+              <figure class="relative h-0 pb-[56.25%] md:pb-[75%] lg:pb-[56.25%] overflow-hidden transform md:-translate-y-2 xl:-translate-y-4 group-hover:translate-x-0 group-hover:translate-y-0 transition duration-700 ease-out">
+                  <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="https://preview.cruip.com/open-pro/images/blog-post-01.jpg" width="540" height="303" alt="Blog post">
+              </figure>
+          </a>
+          <div>
+              <header>
+                  <div class="mb-3">
+                      <ul class="flex flex-wrap text-xs font-medium -m-1">
+                          <li class="m-1">
+                              <a class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-purple-600 hover:bg-purple-700 transition duration-150 ease-in-out" href="#0">Product</a>
+                          </li>
+                          <li class="m-1">
+                              <a class="inline-flex text-center text-gray-100 py-1 px-3 rounded-full bg-blue-500 hover:bg-blue-600 transition duration-150 ease-in-out" href="#0">Engineering</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <h3 class="text-2xl lg:text-3xl font-bold leading-tight mb-2">
+                      <a class="hover:text-gray-100 transition duration-150 ease-in-out" href="#0">{{i.title}}.</a>
+                  </h3>
+              </header>
+              <p class="text-lg text-gray-400 flex-grow">{{ i.description }}</p>
+              <footer class="flex items-center mt-4">
+                  <a href="#0">
+                      <img class="rounded-full flex-shrink-0 mr-4" src="https://preview.cruip.com/open-pro/images/news-author-04.jpg" width="40" height="40" alt="Author 04">
+                  </a>
+                  <div>
+                      <a class="font-medium text-gray-200 hover:text-gray-100 transition duration-150 ease-in-out" href="#0">{{i.user}}</a>
+                      <span class="text-gray-700"> - </span>
+                      <span class="text-gray-500">{{i.date}}</span>
+                  </div>
+              </footer>
+          </div>
+      </article>    
     </div>
-    <div class="p-6">
-      <div class="mb-2 flex items-center justify-between">
-        <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-          {{ i.title }}
-        </p>
-        <p class="block font-sans text-base font-medium leading-relaxed text-blue-gray-900 antialiased">
-          <div class="flex justify-end">
-          <svg width="24" class="mx-3" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1614 12.0531C15.1614 13.7991 13.7454 15.2141 11.9994 15.2141C10.2534 15.2141 8.83838 13.7991 8.83838 12.0531C8.83838 10.3061 10.2534 8.89111 11.9994 8.89111C13.7454 8.89111 15.1614 10.3061 15.1614 12.0531Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M11.998 19.3549C15.806 19.3549 19.289 16.6169 21.25 12.0529C19.289 7.48885 15.806 4.75085 11.998 4.75085H12.002C8.194 4.75085 4.711 7.48885 2.75 12.0529C4.711 16.6169 8.194 19.3549 12.002 19.3549H11.998Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-            {{ i.views }}</div>
-        </p>
-      </div>
-      <p class="block font-sans text-sm font-normal leading-normal text-gray-700 antialiased opacity-75">
-        {{ i.description }}
-      </p>
-    </div>
-    <div class="p-6 pt-0">
-      <button
-        class="block w-full select-none rounded-lg bg-blue-gray-900/10 py-3 px-6 text-center align-middle font-sans text-xs font-bold uppercase text-blue-gray-900 transition-all hover:scale-105 focus:scale-105 focus:opacity-[0.85] active:scale-100 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
-        type="button"
-      >
-        Add to Cart
-      </button>
-    </div>
-  </div>
+
   {% endfor %}
+</section>
 {% endblock content %}
