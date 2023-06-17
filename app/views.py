@@ -41,8 +41,8 @@ class CategoryView(View):
         if str(article) == "Bog'lanish":
             form = ContactForm()
             return render(request, "contact.html", {'form':form})
-          
-        else:
+        
+        elif str(article) in ["Yangiliklar"]:
             print("--------------------------------------", request)
             context = {
                 '_id':id,
@@ -51,6 +51,13 @@ class CategoryView(View):
                 }
             return render(request, 'article_list.html', context)
         
+        
+        else:
+            context = {
+                '_id':id,
+                'articles':articles[0],
+                }
+            return render(request, 'one_page_detail.html', context)
         
     def post(self, request, id):
         article = ArticleCategory.objects.get(id=id)
