@@ -34,7 +34,7 @@ class CategoryView(View):
     
     def get(self, request, id):
         # articles = get_object_or_404(Article, category = id)
-        articles = Article.objects.filter(category=id)
+        articles = Article.objects.filter(category = id)
         article = ArticleCategory.objects.get(id=id)
         print("=============================================", article)
         
@@ -42,7 +42,7 @@ class CategoryView(View):
             form = ContactForm()
             return render(request, "contact.html", {'form':form})
         
-        elif str(article) in ["Yangiliklar"]:
+        elif str(article) in ["Yangiliklar", "E'lonlar"]:
             print("--------------------------------------", request)
             context = {
                 '_id':id,
@@ -53,12 +53,27 @@ class CategoryView(View):
         
         
         else:
-            context = {
-                '_id':id,
-                'articles':articles[0],
-                }
-            return render(request, 'one_page_detail.html', context)
-        
+            if articles:
+                context = {
+                    '_id':id,
+                    'articles':articles[0],
+                    }
+                return render(request, 'one_page_detail.html', context)
+            else:
+                category_id = ArticleCategory.objects.get(name="Yangiliklar")
+                articles = Article.objects.filter(category=category_id)
+                article = Article.objects.filter(category=category_id)[len(articles)-1]
+
+                articles = articles[0:4]
+
+                context = {
+                        'articles':articles,
+                        'article':article,
+                        }
+                return render(request, 'index.html', context)
+            
+            
+                
     def post(self, request, id):
         article = ArticleCategory.objects.get(id=id)
         if str(article) == "Bog'lanish":
