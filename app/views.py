@@ -18,7 +18,7 @@ def index(request):
 class IndexView(View):
     def get(self, request):
         category_id = ArticleCategory.objects.get(name="Yangiliklar")
-        articles = Article.objects.filter(category=category_id)
+        articles = Article.objects.filter(category=category_id).order_by('-id')
         article = Article.objects.filter(category=category_id)[len(articles)-1]
 
         articles = articles[0:4]
@@ -52,11 +52,21 @@ class CategoryView(View):
             return render(request, 'article_list.html', context)
         
         
+        elif str(article) in ["Qonunlar", "Qarorlar", "Farmonlar"]:
+            print("--------------------------------------", request)
+            context = {
+                '_id':id,
+                'articles':articles,
+                'article':article,
+                }
+            return render(request, 'documents_list.html', context)
+        
+
         else:
             if articles:
                 context = {
                     '_id':id,
-                    'articles':articles[0],
+                    'article':articles[0],
                     }
                 return render(request, 'one_page_detail.html', context)
             else:
@@ -130,11 +140,15 @@ class CategoryDetailView(View):
         article.save()
       
         context = {
-            '_id':category_id,
+            'category_id':category_id,
             'article':article,
             'articles':articles,
             }
+        print("==========================++++++++==============",articles)
+        print("==========================++++++++==============",context)
         
+        if str(article.category) in ["Qonunlar", "Qarorlar", "Farmonlar"]:
+            return render(request, 'one_page_detail.html', context)
         return render(request, 'article_detail.html', context)
     
     
