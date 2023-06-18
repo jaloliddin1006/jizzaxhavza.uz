@@ -126,6 +126,8 @@ class CategoryDetailView(View):
         # articles = get_object_or_404(Article, category = id)
         article = Article.objects.get(id=id)
         articles = Article.objects.filter(category=category_id)
+        article.views += 1  # Ko'rishlar sonini 1 ga oshirish
+        article.save()
       
         context = {
             '_id':category_id,
