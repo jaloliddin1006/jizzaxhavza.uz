@@ -13,12 +13,12 @@
                     </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-stretch auto-rows-[1fr]">
                 {% endif %}
-                <article class="bg-white rounded-lg overflow-hidden shadow-md h-full">
-                    <a class="relative block group" href="#0">
+                <article class="bg-white rounded-lg overflow-hidden shadow-md h-full mb-5">
+                   
                         <div class="relative pb-[56.25%] overflow-hidden">
                             <img class="absolute inset-0 w-full h-full object-cover transform hover:scale-105 transition duration-700 ease-out" src="{{ i.articleimage_set.all.first.image.url }}" alt="Blog post">
                         </div>
-                    </a>
+                   
                     <div class="p-4">
                         <header>
                             <div class="mb-3">
@@ -44,6 +44,7 @@
                       </div>
                 </article>
             {% endfor %}
+        
         </div>
     </div>
 </section>

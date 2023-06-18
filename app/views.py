@@ -34,7 +34,7 @@ class CategoryView(View):
     
     def get(self, request, id):
         # articles = get_object_or_404(Article, category = id)
-        articles = Article.objects.filter(category = id)
+        articles = Article.objects.filter(category = id).order_by('-id')
         article = ArticleCategory.objects.get(id=id)
         # print("=============================================", article)
         

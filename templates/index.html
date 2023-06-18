@@ -1,10 +1,11 @@
 {% extends "_base.html" %}
 
 {% block content %}
+<div>
 <div id="default-carousel" class="relative w-full" data-carousel="slide">
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
-      <a href="/i/1/{{article.id}}"></a>
+      <a href="{% url 'app:detail' category_id=article.category.id id=article.id %}"></a>
       {% for img in article.articleimage_set.all %}
       
       <!-- <img src="{{ img.image.url }}"> -->
@@ -54,7 +55,7 @@
     
     {% for i in articles %}
 
-    <a href="{% url "app:detail" category_id=i.category.id id=i.id %}" class="flex bg-white border border-gray-200 rounded-lg shadow md:flex-row mt-2 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+    <a href="{% url 'app:detail' category_id=i.category.id id=i.id %}" class="flex bg-white border border-gray-200 rounded-lg shadow md:flex-row mt-2 hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
         <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src="{{ i.articleimage_set.all.first.image.url }}" alt="">
         <div class="flex flex-col justify-between p-4 leading-normal">
             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{{i.title}}</h5>
@@ -69,5 +70,8 @@
     
       {%endfor%}
     </div>
-
+    <a href="{% url 'app:post' article.category.id %}">
+    <p class="text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-right">Ko'proq yangiliklarni ko'rish</p>
+  </a>
+  </div>
 {% endblock content %}
