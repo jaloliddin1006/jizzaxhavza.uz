@@ -19,7 +19,7 @@ class IndexView(View):
     def get(self, request):
         category_id = ArticleCategory.objects.get(name="Yangiliklar")
         articles = Article.objects.filter(category=category_id).order_by('-id')
-        article = Article.objects.filter(category=category_id)[len(articles)-1]
+        article = articles[0]
 
         articles = articles[0:4]
 
