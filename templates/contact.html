@@ -1,31 +1,45 @@
 {% extends '_base.html' %}
-{% load crispy_forms_tags %}
 {% load static %}
 
 {% block content %}
 
-<div class="container">
-    <div class="row mt-5">
-        <div class="col mt-5">
-        </div>
-        <div class="col-6 mt-6">
-            <h2>
-                Biz bilan aloqa
+<section class="bg-white dark:bg-gray-900 center">
 
-            </h2>
-            <form method="POST" > {% csrf_token %}
-                
-                {{ form | crispy }}
-                <button type="submit" class="btn btn-primary"> Submit </button>
-            </form>
+    Biz bilan aloqa
+<!-- 
+    <form method="POST" > {% csrf_token %}
+        
+        {{ form  }}
+        <button type="submit" class="btn btn-primary"> Submit </button>
+    </form>
+ -->
 
+ <form>
+    <div class="grid gap-6 mb-6 md:grid-cols-2">
+        <div>
+            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ismningiz</label>
+            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jamshid" required>
         </div>
-        <div class="col">
+        <br>
+        <div>
+            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefon Raqamingiz</label>
+            <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="91-123-45-68" required>
+        </div>
+        <br>
+
+        <div>
+            <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">O'zingizni qiziqtirgan savol yoki taklifingizni kiriting</label>
+            <textarea type="text" id="body" class="bg-gray-150 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+        </div>
+        <br>
+
+        <div>
+            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
         </div>
     </div>
-</div> 
+</form>
 
-
-
+            
+</section>
 
 {% endblock content %}

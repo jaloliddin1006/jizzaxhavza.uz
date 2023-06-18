@@ -4,3 +4,7 @@ django-ckeditor==6.5.1
 Pillow==9.5.0
 django-mptt==0.14.0
 environs==9.5.0
+django-crispy-forms
+crispy-bootstrap5
+django-imagekit
+aiogram

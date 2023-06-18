@@ -12,30 +12,68 @@ from app import bot
 
 # Create your views here.
 def index(request):
-    return render(request, 'index.html')
+    objs = Article.objects.filter(category=1)
+    return render(request, 'index.html', context={'articles' : objs})
 
+class IndexView(View):
+    def get(self, request):
+        category_id = ArticleCategory.objects.get(name="Yangiliklar")
+        articles = Article.objects.filter(category=category_id)
+        article = Article.objects.filter(category=category_id)[len(articles)-1]
 
+        articles = articles[0:4]
+
+        context = {
+                'articles':articles,
+                'article':article,
+                }
+        return render(request, 'index.html', context)
+        
+        
 class CategoryView(View):
     
     def get(self, request, id):
         # articles = get_object_or_404(Article, category = id)
-        articles = Article.objects.filter(category=id)
+        articles = Article.objects.filter(category = id)
         article = ArticleCategory.objects.get(id=id)
         print("=============================================", article)
         
         if str(article) == "Bog'lanish":
             form = ContactForm()
             return render(request, "contact.html", {'form':form})
-          
-        else:
+        
+        elif str(article) in ["Yangiliklar", "E'lonlar"]:
             print("--------------------------------------", request)
             context = {
                 '_id':id,
                 'articles':articles,
+                'article':article,
                 }
             return render(request, 'article_list.html', context)
         
         
+        else:
+            if articles:
+                context = {
+                    '_id':id,
+                    'articles':articles[0],
+                    }
+                return render(request, 'one_page_detail.html', context)
+            else:
+                category_id = ArticleCategory.objects.get(name="Yangiliklar")
+                articles = Article.objects.filter(category=category_id)
+                article = Article.objects.filter(category=category_id)[len(articles)-1]
+
+                articles = articles[0:4]
+
+                context = {
+                        'articles':articles,
+                        'article':article,
+                        }
+                return render(request, 'index.html', context)
+            
+            
+                
     def post(self, request, id):
         article = ArticleCategory.objects.get(id=id)
         if str(article) == "Bog'lanish":
@@ -88,6 +126,8 @@ class CategoryDetailView(View):
         # articles = get_object_or_404(Article, category = id)
         article = Article.objects.get(id=id)
         articles = Article.objects.filter(category=category_id)
+        article.views += 1  # Ko'rishlar sonini 1 ga oshirish
+        article.save()
       
         context = {
             '_id':category_id,

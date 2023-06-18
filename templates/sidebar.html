@@ -1,41 +1,45 @@
 {% load mptt_tags %}
 {% load static %}
+<div>
+  <ul class="menu bg-base-200 w-56 rounded-box m-5 ">
+    <li>
+      <h2 style="font-size: 18px;" class="menu-title text-center">Suv xo'jaligi faoliyati to'g'risida</h2>
+  {% for category in sidebar_categories %}
 
-<ul class="menu bg-base-200 w-56 rounded-box mx-5 ">
+        <li style="font-size: 18px;" class="mb-4">
+          <a href="{% url 'app:post' category.article_id %}">
+            <img src="{{ category.icon.url }}" class="h-6 w-6" fill="none" viewBox="0 0 60 60" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+            {{ category.name }}
+          </a>
+        </li>
+  {% endfor %}
+
+
+      </li>
+  </ul>
+  
+  
+  
+
+<!-- <ul class="menu bg-base-200 rounded-box mx-5 my-5">
   {% for category in sidebar_categories %}
   
-  <li style="font-size:20px" class="m-28">
+  <li>
 
     {% if category.icon %}
     <img src="{{ category.icon.url }}" style="width:50px" alt=" icon">
     {% endif %}
   
   
-    {% if category.has_children %}
-    <details open>
-      <summary>{{ category.name }}</summary>
-      <ul class="p-6">
-        {% recursetree category.get_children %}
-        <li>
-          <h3>
-
-            <a href="{{ node.get_absolute_url }}">{{ node.name }}</a>
-          </h3>
-
-        </li>
-        {% endrecursetree %}
-      </ul>
-    </details>
-
-    {% elif category.is_root  %}
-
       <a href="{{ category.get_absolute_url }}">
         
 
         {{ category.name }}</a>
-    </h3>
-    {% endif %}
+  
   </li>
   {% endfor %}
 
-</ul>
+</ul> -->
+
+</div>
+
