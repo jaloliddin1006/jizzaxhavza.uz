@@ -1,0 +1,40 @@
+{% extends "_base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-4xl dark:text-white md-6 text-center"> <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-400">{{ article }}</span></h2>
+
+{% for i in articles %}
+
+<div class="justify-center mb-10">
+
+   <div
+       class="relative flex flex-col md:flex-row  space-y-3 md:space-y-0 rounded-xl shadow-lg p-3  md:max-w-3xl  border-white bg-white">
+       
+           <div class="w-full md:w-2/3 bg-white flex flex-col space-y-2 p-3">
+               <div class="flex justify-between item-center">
+                   
+               </div>
+               <h3 class="font-black text-gray-800 md:text-3xl text-xl">{{ i.title }}</h3>
+               <p class="md:text-lg text-gray-500 text-base">{{ i.subtitle |safe |slice:"200" }}</p>
+               <a href="{% url 'app:detail' category_id=i.category.id id=i.id %}" >
+
+               <p class="text-xl font-black text-gray-800  text-center text-link">
+                  
+                   <span class="font-normal text-gray-600 text-base  ">    Batafsil o'qish...</span>
+               </p>
+            </a>
+           </div>
+       </div>
+
+   </div>
+   {% endfor %}
+
+
+
+
+
+
+
+{% endblock content %}

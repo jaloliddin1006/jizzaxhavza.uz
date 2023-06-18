@@ -2,15 +2,24 @@
 {% load static %}
 
 {% block content %}
+<div> 
+    <p>
+         {% if category_id %}
+
+          
+         <a href="{% url 'app:post' category_id %}">🔙 Ortga qaytish</a>
+         {% endif %}
+    </p>
+</div>
 <div class="m-4 mx-5 " style="text-align: justify; margin-right:100px; margin-left:100px">
 <strong>
-    <h4 style="text-align:center; font-size: 24px" >{{articles.title}}</h4>
+    <h4 style="text-align:center; font-size: 24px" >{{article.title}}</h4>
 </strong>
 <br>
 <hr>
 <br>
     
-    <p class="" >{{articles.description| safe}}</p>
+    <p class="" >{{article.description| safe}}</p>
   
 <br>
 <hr>

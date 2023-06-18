@@ -10,7 +10,8 @@ class ArticleCategory(models.Model):
     
 class Article(models.Model):
     category = models.ForeignKey(ArticleCategory, on_delete=models.CASCADE)
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=200)
+    subtitle = models.CharField(max_length=400, null=True, blank=True)
     description = RichTextField()
     views = models.IntegerField(default=0)
 
