@@ -1,7 +1,6 @@
 {% load mptt_tags %}
 {% load static %}
-<div>
-  <ul class="menu bg-base-200 w-56 rounded-box m-5 ">
+  <ul class="menu bg-base-200 rounded-box m-5">
     <li>
       <h2 style="font-size: 18px;" class="menu-title text-center">Suv xo'jaligi faoliyati to'g'risida</h2>
   {% for category in sidebar_categories %}
@@ -17,29 +16,3 @@
 
       </li>
   </ul>
-  
-  
-  
-
-<!-- <ul class="menu bg-base-200 rounded-box mx-5 my-5">
-  {% for category in sidebar_categories %}
-  
-  <li>
-
-    {% if category.icon %}
-    <img src="{{ category.icon.url }}" style="width:50px" alt=" icon">
-    {% endif %}
-  
-  
-      <a href="{{ category.get_absolute_url }}">
-        
-
-        {{ category.name }}</a>
-  
-  </li>
-  {% endfor %}
-
-</ul> -->
-
-</div>
-

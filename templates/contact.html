@@ -2,38 +2,53 @@
 {% load static %}
 
 {% block content %}
+<section class="bg-white dark:bg-gray-900 center " style="margin-right:20px">
+    <h2 class="mb-6 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-4xl dark:text-white md-6 text-center " >
+        <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-400 mb-10"> Biz bilan aloqa</span>
+    </h2>
 
-<section class="bg-white dark:bg-gray-900 center">
-    <h2 class="mb-4 text-2xl font-extrabold leading-none tracking-tight text-gray-900 md:text-4xl lg:text-4xl dark:text-white md-6 text-center"> <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-400"> Biz bilan aloqa</span></h2>
-
-   
-
- <form>
     <div class="grid gap-6 mb-6 md:grid-cols-2">
         <div>
-            <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ismningiz</label>
-            <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jamshid" required>
+            <div class="my-10 ">
+                 <p class="text-gray-600 my-2 "><b>Telefon raqam:</b> +998 (72) 226-91-04</p>
+                <p class="text-gray-600	my-2"><b>Telegram:</b> @HavzaDispetcher</p>
+                <p class="text-gray-600	my-2"><b>Manzil:</b> Jizzax shahri, Beshquvur kòchasi 56-uy</p>
+            </div>
+            <h2 class=" md:text-2xl lg:text-2xl dark:text-white my-6 text-center " >
+                <span class=""> Bizga biror taklif yoki savolingiz bo'lsa yozib qoldiring</span>
+            </h2>
+            <form>
+                <div class="grid gap-6">
+                    <div>
+                        <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ismningiz</label>
+                        <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jamshid" required>
+                    </div>
+                    <br>
+                    <div>
+                        <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefon Raqamingiz</label>
+                        <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+998 91 123-45-68" required>
+                    </div>
+                    <br>
+
+                    <div>
+                        <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">O'zingizni qiziqtirgan savol yoki taklifingizni kiriting</label>
+                        <textarea type="text" id="body" class="bg-gray-150 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+                    </div>
+                    <br>
+
+                    <div>
+                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                    </div>
+                </div>
+            </form>
         </div>
-        <br>
-        <div>
-            <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefon Raqamingiz</label>
-            <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="91-123-45-68" required>
-        </div>
-        <br>
 
         <div>
-            <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">O'zingizni qiziqtirgan savol yoki taklifingizni kiriting</label>
-            <textarea type="text" id="body" class="bg-gray-150 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
-        </div>
-        <br>
-
-        <div>
-            <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+            <div class="flex flex-col space-y-[4px]">
+                <img src="{% static 'src/contact.jpg' %} " style="-webkit-transform: scaleX(-1); transform: scaleX(-1);" alt="Contact Image">
+            </div>
         </div>
     </div>
-</form>
-
-            
 </section>
 
 {% endblock content %}
