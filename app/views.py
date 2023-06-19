@@ -19,7 +19,7 @@ class IndexView(View):
     def get(self, request):
         category_id = ArticleCategory.objects.get(name="Yangiliklar")
         articles = Article.objects.filter(category=category_id).order_by('-id')
-        article = Article.objects.filter(category=category_id)[len(articles)-1]
+        article = articles[0]
 
         articles = articles[0:4]
 
@@ -34,16 +34,16 @@ class CategoryView(View):
     
     def get(self, request, id):
         # articles = get_object_or_404(Article, category = id)
-        articles = Article.objects.filter(category = id)
+        articles = Article.objects.filter(category = id).order_by('-id')
         article = ArticleCategory.objects.get(id=id)
-        print("=============================================", article)
+        # print("=============================================", article)
         
         if str(article) == "Bog'lanish":
             form = ContactForm()
             return render(request, "contact.html", {'form':form})
         
         elif str(article) in ["Yangiliklar", "E'lonlar"]:
-            print("--------------------------------------", request)
+            # print("--------------------------------------", request)
             context = {
                 '_id':id,
                 'articles':articles,
@@ -52,8 +52,8 @@ class CategoryView(View):
             return render(request, 'article_list.html', context)
         
         
-        elif str(article) in ["Qonunlar", "Qarorlar", "Farmonlar"]:
-            print("--------------------------------------", request)
+        elif str(article) in ["Qonunlar", "Qarorlar", "Farmonlar", "Standartlar", "Dasturlar", "Loyihalar"]:
+            # print("--------------------------------------", request)
             context = {
                 '_id':id,
                 'articles':articles,
@@ -90,13 +90,13 @@ class CategoryView(View):
             form = ContactForm(data=request.POST)
             if form.is_valid():
                 data1 = form.save(request)
-                print("==========================================", request)
+                # print("==========================================", request)
                 
                 messages.success(request,"Xabaringiz adminga yuborildi. Xabaringiz uchun rahmat.")
-                print("==========================================", request)
+                # print("==========================================", request)
                 
                 # # data = request.data
-                print("==========================================", data1.id)
+                # print("==========================================", data1.id)
                 data = Contact.objects.get(id=int(data1.id))
                 print(data)
               
@@ -135,19 +135,19 @@ class CategoryDetailView(View):
     def get(self, request,category_id, id):
         # articles = get_object_or_404(Article, category = id)
         article = Article.objects.get(id=id)
-        articles = Article.objects.filter(category=category_id)
+        articles = Article.objects.filter(category=category_id).order_by('-id')
         article.views += 1  # Ko'rishlar sonini 1 ga oshirish
         article.save()
       
         context = {
             'category_id':category_id,
             'article':article,
-            'articles':articles,
+            'articles':articles[0:10],
             }
-        print("==========================++++++++==============",articles)
-        print("==========================++++++++==============",context)
+        # print("==========================++++++++==============",articles)
+        # print("==========================++++++++==============",context)
         
-        if str(article.category) in ["Qonunlar", "Qarorlar", "Farmonlar"]:
+        if str(article.category) in ["Qonunlar", "Qarorlar", "Farmonlar", "Standartlar", "Dasturlar", "Loyihalar"]:
             return render(request, 'one_page_detail.html', context)
         return render(request, 'article_detail.html', context)
     

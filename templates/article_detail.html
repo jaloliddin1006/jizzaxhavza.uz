@@ -1,40 +1,109 @@
 {% extends "_base.html" %}
 {% load static %}
 {% block content %}
-          
-<section class="bg-white dark:bg-gray-900">
+
+<section>
+   
     <div class="py-8 px-4 mx-auto max-w-screen-xl lg:py-16">
-        <div class="bg-gray-50 dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-lg p-8 md:p-12 mb-8">
-            <h6 class="mb-2 text-3l tracking-tight text-gray-900 dark:text-white"><div class="flex">{{article.date|date:"d M Y"}} | &nbsp;<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div> 
+            <p>
+                 {% if category_id %}
+        
+                  
+                 <a href="{% url 'app:post' category_id %}">🔙 Ortga qaytish</a>
+                 {% endif %}
+            </p>
+        </div>
+        <div class="border glass bg-gray-50 rounded-lg p-8 md:p-12 mb-8">
+            <h6 class="mb-2 text-3l tracking-tight text-gray-900 "><div class="flex">{{article.date|date:"d M Y"}} | &nbsp;<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1614 12.0531C15.1614 13.7991 13.7454 15.2141 11.9994 15.2141C10.2534 15.2141 8.83838 13.7991 8.83838 12.0531C8.83838 10.3061 10.2534 8.89111 11.9994 8.89111C13.7454 8.89111 15.1614 10.3061 15.1614 12.0531Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.998 19.3549C15.806 19.3549 19.289 16.6169 21.25 12.0529C19.289 7.48885 15.806 4.75085 11.998 4.75085H12.002C8.194 4.75085 4.711 7.48885 2.75 12.0529C4.711 16.6169 8.194 19.3549 12.002 19.3549H11.998Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 {{article.views}}</div></h6>
+                <br>
 
-            <h1 class="text-gray-900 dark:text-white text-3xl md:text-5xl font-extrabold mb-2">{{article.title}}</h1>
-            <img class="h-auto max-w-lg rounded-lg md:float-right" src="{{article.articleimage_set.all.first.image.url}}" alt="image description">
+            <h1 class="text-gray-900xl font-extrabold mb-2">{{article.title}}</h1>
+         
+<br>
+            <div id="default-carousel" class="relative w-full" data-carousel="slide">
+                <!-- Carousel wrapper -->
+                <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+                    {% if article.articleimage %}
+                  {% for img in article.articleimage_set.all %}
+                  
+                  <!-- <img src="{{ img.image.url }}"> -->
+            
+                  {% if img == article.articleimage_set.all.first %}
+                  <div class="hidden duration-700 ease-in-out active" data-carousel-item>
+                    <img src="{{img.image.url}}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                  </div>
+            
+                  {% else %}
+                  <div class="hidden duration-700 ease-in-out " data-carousel-item>
+                    <img src="{{ img.image.url }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                  </div>
+                  {% endif %}
+                  {% endfor %}
+                  {% endif %}
+              
+                    
+                </div>
+                <!-- Slider indicators -->
+                <div class="absolute z-30 flex space-x-3 -translate-x-1/2 bottom-5 left-1/2">
+                  {% for img in article.articleimage_set.all %}
+                  <button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="{{ img.id }}"></button>
+            
+                  {% endfor %}
+                </div>
+                <!-- Slider controls -->
+                <button type="button" class="absolute top-0 left-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                        <span class="sr-only">Previous</span>
+                    </span>
+                </button>
+                <button type="button" class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+                    <span class="inline-flex items-center justify-center w-8 h-8 rounded-full sm:w-10 sm:h-10 bg-white/30 group-hover:bg-white/50 group-focus:ring-4 group-focus:ring-white group-focus:outline-none">
+                        <svg aria-hidden="true" class="w-5 h-5 text-white sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                        <span class="sr-only">Next</span>
+                    </span>
+                </button>
+            </div>
 
-            <p class="text-lg font-normal text-gray-500 dark:text-gray-400 mb-6">{{article.description| safe}}</p>
+            
+
+
+            <p class="text-lg font-normal text-gray-500 mb-6">{{article.description| safe}}</p>
             
             {% if request.user == article.author %}
 
-            <a href="#" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 dark:focus:ring-blue-900">
+            <a href="#" class="inline-flex justify-center items-center py-2.5 px-5 text-base font-medium text-center text-white rounded-lg bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300">
                 Maqolani o'zgartirish
-                <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                <svg aria-hidden="true" class="ml-2 -mr-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd">
+                    </path>
+                </svg>
             </a>
             {%endif%}
         </div>
 
-<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white md-6">Shunga <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">aloqador</span></h1>
-    <div class="carousel carousel-center  p-4 space-x-4 bg-neutral rounded-box">
+<h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl md-6">Shunga <span class="underline underline-offset-3 decoration-8 decoration-blue-400">aloqador</span></h1>
+<div class="flex" onmouseout="scrolview(false)">
 
+<div id="mainscroll" class="static  carousel carousel-center  p-4 space-x-4 bg-neutral rounded-box overflow-x-scroll" onmouseover="scrolview(true)" >
         {% for i in article.category.article_set.all %}
         {% if article != i %}
-        <div class="carousel-item object-cover rounded-t-lg md:rounded-none md:rounded-l-lg">
-            <a href="{% url 'app:detail' category_id=i.category.id id=i.id %}">
-            <img src="{{i.articleimage_set.all.first.image.url}}" class="rounded-box h-auto max-w-lg my-auto" />
-
-        </a>
+        <div class="carousel-item object-cover rounded-t-lg md:rounded-none md:rounded-l-lg hover:scroll-auto">
+            <figure class="transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
+                <a href="{% url 'app:detail' category_id=i.category.id id=i.id %}">
+                    <img src="{{i.articleimage_set.all.first.image.url}}" class="rounded-box object-cover h-96 w-72 " />
+                
+                <figcaption class="absolute px-4 bottom-6">
+                    <p class="text-1xl font-extrabold text-white drop-shadow-lg" style="text-shadow: 1px 2px rgba(0, 0, 0, 0.3);">{{ i.title }}</p>
+                </figcaption>
+            </a>
+              </figure>
+            
           </div>
   
         <!-- <div class="card border border-0 shadow-sm d-inline-block m-1 mt-3" style="width: 14rem;">
@@ -47,15 +116,46 @@
                     <a href="{% url 'app:detail' category_id=i.category.id id=i.id %}" class="btn btn-outline-primary">Details</a> -->
         {% endif %}
         {% endfor %}
-      </div>
 
+      </div>
+      <!-- style="margin-left: 2rem; margin-top: 11.5rem;" -->
+      <button id="leftscroll"  class="mt-44 ml-8 absolute text-blue-700 border bg-blue-700 hover:border-blue-700 text-white hover:text-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center" onmouseover="scrolview(true)">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+    
+            
+        </button>
+        <!-- style="margin-left: 74rem; margin-top: 11.5rem;" -->
+      <button id="rightscroll"  class="mt-44 ml-96 absolute text-blue-700 border bg-blue-700 hover:border-blue-700 text-white hover:text-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center" onmouseover="scrolview(true)">
+        <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+        </button>
 
     </div>
+</div>
 
 </section>
+<script>
+        const rightscroll = document.getElementById("rightscroll");
+    const leftscroll = document.getElementById("leftscroll");
+    const mainscroll = document.getElementById('mainscroll');
+    rightscroll.onclick = () => {
+        mainscroll.scrollLeft += 200;
+    };
+    leftscroll.onclick = () => {
+        mainscroll.scrollLeft -= 200;
+    };   
+    function scrolview(condition) {
+    // Sayt o'zgarishlari
+    if (condition) 
+    {
+        rightscroll.style.display='';
+        leftscroll.style.display='';
+    } else {
+    rightscroll.style.display='none';
+    leftscroll.style.display='none';
+            }
 
-
-
-
-
+    }
+</script>
 {% endblock content %}
