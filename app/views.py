@@ -152,13 +152,3 @@ class CategoryDetailView(View):
         return render(request, 'article_detail.html', context)
     
     
-
-# def article(request, name):
-#     print("=============================================", name)
-#     news = Article.objects.all()
-    
-#     context = {
-#         'article' : news,
-#     }
-    
-#     return render(request, 'article_list.html', context)
