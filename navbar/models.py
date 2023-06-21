@@ -40,7 +40,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=150, verbose_name="Ismingizni kiriting: ")
     phone = models.CharField(max_length=150, verbose_name="Telefon raqamingiz:")
     body = models.TextField(verbose_name="O'zingizni qiziqtirgan savol yoki takliflaringizni yozishingiz mumkin:")
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateTimeField(auto_now=True)
 
     def __str__(self) -> str:
         return str(self.name)
