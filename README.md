@@ -4,3 +4,4 @@ Sirdaryo-Zarafshon  Irrigatsiya Tizimlari Havza Boshqarmasi ning rasmiy web - sa
 Ushbu sayt django-template da ko'tarilgan sayt hisoblanadi
 
 *(Ushbu sayt test rejimida ishlamoqda...)*
+oooo
