@@ -42,7 +42,7 @@ class CategoryView(View):
             form = ContactForm()
             return render(request, "contact.html", {'form':form})
         
-        elif str(article) in ["Yangiliklar", "E'lonlar"]:
+        elif str(article) in ["Yangiliklar"]:
             # print("--------------------------------------", request)
             context = {
                 '_id':id,
@@ -52,7 +52,7 @@ class CategoryView(View):
             return render(request, 'article_list.html', context)
         
         
-        elif str(article) in ["Qonunlar", "Qarorlar", "Farmonlar", "Standartlar", "Dasturlar", "Loyihalar"]:
+        elif str(article) in ["Qonunlar", "Qarorlar", "Farmonlar", "Standartlar", "Dasturlar", "Loyihalar", "E'lonlar"]:
             # print("--------------------------------------", request)
             context = {
                 '_id':id,
@@ -154,7 +154,7 @@ class CategoryDetailView(View):
         # print("==========================++++++++==============",articles)
         # print("==========================++++++++==============",context)
         
-        if str(article.category) in ["Qonunlar", "Qarorlar", "Farmonlar", "Standartlar", "Dasturlar", "Loyihalar"]:
+        if str(article.category) in ["Qonunlar", "Qarorlar", "Farmonlar", "Standartlar", "Dasturlar", "Loyihalar", "E'lonlar"]:
             return render(request, 'one_page_detail.html', context)
         return render(request, 'article_detail.html', context)
     
