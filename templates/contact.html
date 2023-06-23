@@ -17,22 +17,22 @@
             <h2 class=" md:text-2xl lg:text-2xl dark:text-white my-6 text-center " >
                 <span class=""> Bizga biror taklif yoki savolingiz bo'lsa yozib qoldiring</span>
             </h2>
-            <form>
+            <form method="POST">{% csrf_token %}
                 <div class="grid gap-6">
                     <div>
                         <label for="first_name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Ismningiz</label>
-                        <input type="text" id="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jamshid" required>
+                        <input type="text" id="first_name" name="first_name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Jamshid" required>
                     </div>
                     <br>
                     <div>
                         <label for="phone" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Telefon Raqamingiz</label>
-                        <input type="tel" id="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+998 91 123-45-68" required>
+                        <input type="tel" id="phone" name="phone" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="+998 91 123-45-68" required>
                     </div>
                     <br>
 
                     <div>
                         <label for="body" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">O'zingizni qiziqtirgan savol yoki taklifingizni kiriting</label>
-                        <textarea type="text" id="body" class="bg-gray-150 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
+                        <textarea type="text" name="body" id="body" class="bg-gray-150 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full py-6 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required></textarea>
                     </div>
                     <br>
 

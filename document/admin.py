@@ -7,14 +7,15 @@ class ArticleImageInline(admin.TabularInline):
     model = ArticleImage
     
 class ArticleAdmin(admin.ModelAdmin):
-    formfield_overrides = {
-        models.TextField: {'widget': CKEditorWidget}
-    }
+
+    inlines = [ArticleImageInline]
 
     list_display = ['title', 'category', 'date']
-    inlines = [ArticleImageInline]
+    list_filter = ["category"]
+    list_per_page =30
+ 
+ 
     
-    
-    
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(ArticleCategory)
