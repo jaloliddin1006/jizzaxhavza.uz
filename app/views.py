@@ -158,7 +158,6 @@ class CategoryDetailView(View):
             return render(request, 'one_page_detail.html', context)
         return render(request, 'article_detail.html', context)
     
-    
 
 class UserDetailView(View):
     def get(self, request,category_id, id):
@@ -175,4 +174,4 @@ class UserDetailView(View):
         # print("==========================++++++++==============",context)
         
         return render(request, 'one_page_detail.html', context)
-        
+
