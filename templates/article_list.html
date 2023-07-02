@@ -4,22 +4,19 @@
 {% block content %}
 <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white md-6"> <span class="underline underline-offset-3 decoration-8 decoration-blue-400 dark:decoration-blue-600">{{ article }}</span></h1>
 
-<section class="flex flex-col justify-center antialiased bg-900 text-dark-200 min-h-screen my-5">
-    <div class="container mx-auto p-4 sm:px-10">
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-stretch auto-rows-[1fr]">
+<section class="flex flex-wrap  bg-900 text-dark-200 w-full">
             {% for i in articles %}
                 {% if forloop.counter0|divisibleby:4 and not forloop.first %}
-                    </div>
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-stretch auto-rows-[1fr]">
                 {% endif %}
-                <article class="bg-white rounded-lg overflow-hidden shadow-md h-full mb-5">
+                <article class="bg-white rounded-lg overflow-hidden shadow-md w-96 m-3">
                    
-                        <div class="relative pb-[56.25%] overflow-hidden">
+                        <div class="relative  overflow-hidden">
                             <img class="object-cover w-96 h-48 transform hover:scale-105 transition duration-700 ease-out" src="{{ i.articleimage_set.all.first.image.url }}" alt="Blog post">
                         </div>
                    
                     <div class="p-4">
-                        <header>
+                        <div>
                             <div class="mb-3">
                                 <ul class="flex flex-wrap text-xs font-medium -m-1">
                                     <li class="m-1">
@@ -30,22 +27,20 @@
                             <h3 class="text-xl font-bold leading-tight mb-2">
                                 <a class="hover:text-blue-800 transition duration-150 ease-in-out" href="{% url 'app:detail' category_id=i.category.id id=i.id %}">{{i.title}}.</a>
                             </h3>
-                        </header>
+                        </div>
                         <p class="text-gray-400">{{ i.description|safe|escape |slice:"100" }}</p>
-                        <footer class="flex items-center mt-4">
+                        <div class="flex items-center mt-4">
                             <h6 class="mb-2 text-3l tracking-tight text-gray-900 dark:text-white"><div class="flex">{{i.date|date:"d M Y"}} | &nbsp;<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1614 12.0531C15.1614 13.7991 13.7454 15.2141 11.9994 15.2141C10.2534 15.2141 8.83838 13.7991 8.83838 12.0531C8.83838 10.3061 10.2534 8.89111 11.9994 8.89111C13.7454 8.89111 15.1614 10.3061 15.1614 12.0531Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M11.998 19.3549C15.806 19.3549 19.289 16.6169 21.25 12.0529C19.289 7.48885 15.806 4.75085 11.998 4.75085H12.002C8.194 4.75085 4.711 7.48885 2.75 12.0529C4.711 16.6169 8.194 19.3549 12.002 19.3549H11.998Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                 </svg>
                                 {{i.views}}</div></h6>
-                        </footer>
+                            </div>
                         <a href="{% url 'app:detail' category_id=i.category.id id=i.id %}" class="btn btn-outline-primary">Batafsil o'qish</a>
                       </div>
                 </article>
             {% endfor %}
         
-        </div>
-    </div>
 </section>
 
 

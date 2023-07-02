@@ -1,6 +1,7 @@
 
 from pathlib import Path
 from environs import Env
+from django.utils.translation import gettext_lazy as _
 
 # Read .env file
 env = Env()
@@ -35,6 +36,7 @@ INSTALLED_APPS = [
     # libs
     'crispy_forms',
     'crispy_bootstrap5',
+    'rosetta',
     
     'imagekit',
         'ckeditor',
@@ -50,6 +52,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "django.middleware.locale.LocaleMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -310,3 +313,14 @@ JAZZMIN_SETTINGS = {
     # Add a language dropdown into the admin
     # "language_chooser": True,
 }
+
+LOCALE_PATHS = [
+   BASE_DIR / 'locale'
+]
+
+LANGUAGES = [
+    ("uz", _("Uzbek")),
+    ("uzk", _("Uzbek cyrlic")),
+    ("ru", _("Russian")),
+    ("en", _("English")),
+]

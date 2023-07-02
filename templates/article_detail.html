@@ -87,10 +87,10 @@
 <h1 class="mb-4 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl md-6">Shunga <span class="underline underline-offset-3 decoration-8 decoration-blue-400">aloqador</span></h1>
 <div class="flex" onmouseout="scrolview(false)">
 
-<div id="mainscroll" class="static  carousel carousel-center  p-4 space-x-4 bg-neutral rounded-box overflow-x-scroll" onmouseover="scrolview(true)" >
+<div id="mainscroll" class="static  carousel carousel-center   space-x-4 bg-neutral rounded-box overflow-x-scroll pr-32 pb-4 pt-4 pl-4" onmouseover="scrolview(true)" >
         {% for i in article.category.article_set.all %}
         {% if article != i %}
-        <div class="carousel-item object-cover rounded-t-lg md:rounded-none md:rounded-l-lg hover:scroll-auto">
+        <div class="carousel-item object-cover rounded-t-lg md:rounded-none md:rounded-l-lg hover:scroll-auto ">
             <figure class="transition-all duration-300 cursor-pointer filter grayscale hover:grayscale-0">
                 <a href="{% url 'app:detail' category_id=i.category.id id=i.id %}">
                     <img src="{{i.articleimage_set.all.first.image.url}}" class="rounded-box object-cover h-96 w-72 " />
@@ -116,14 +116,14 @@
 
       </div>
       <!-- style="margin-left: 2rem; margin-top: 11.5rem;" -->
-      <button id="leftscroll"  class="mt-44 ml-8 absolute text-blue-700 border bg-blue-700 hover:border-blue-700 text-white hover:text-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center" onmouseover="scrolview(true)">
+      <button id="leftscroll"  class="md:mt-44 md:ml-8 absolute text-blue-700 border bg-blue-700 hover:border-blue-700 text-white hover:text-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center" onmouseover="scrolview(true)">
         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" style="transform: rotate(180deg);">
             <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
     
             
         </button>
         <!-- style="margin-left: 74rem; margin-top: 11.5rem;" -->
-      <button id="rightscroll"  class="mt-44 ml-96 absolute text-blue-700 border bg-blue-700 hover:border-blue-700 text-white hover:text-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center" onmouseover="scrolview(true)">
+      <button id="rightscroll"  class="md:mt-44 md:ml-74 absolute text-blue-700 border bg-blue-700 hover:border-blue-700 text-white hover:text-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center" onmouseover="scrolview(true)">
         <svg aria-hidden="true" class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
         </button>

@@ -1,6 +1,6 @@
 {% load compress %}
 {% load static %}
-
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +8,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SIRDARYO-ZARAFSHON Irrigatsiya tizimlari havza boshqarmasi</title>
+    <title>{% trans 'SIRDARYO-ZARAFSHON Irrigatsiya tizimlari havza boshqarmasi' %}</title>
 
     <link rel="icon" type="image/x-icon" href="{% static 'favicon.png' %}">
 
@@ -25,17 +25,16 @@
 <header class="sticky top-0 z-50">
     {% include 'header.html' %}
 </header>
-<div class="md:container md:mx-auto m-5">
-<div class="md:max-w-2xl">
+<div class=" md:mx-auto m-5">
+<!-- <div class="md:max-w-2xl"> -->
     <div class="md:flex">
-    <div class="md:shrink-0 ">
+    <div class="md:shrink-0 md:ml-20">
         {% include 'sidebar.html' %}
 
     </div>
     <div class="w-full ">
     {% block content %}
     {% endblock %}
-    </div>
 </div>
 </div>
 </div>
