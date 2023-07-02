@@ -314,13 +314,14 @@ JAZZMIN_SETTINGS = {
     # "language_chooser": True,
 }
 
-LOCALE_PATHS = [
-   BASE_DIR / 'locale'
-]
 
 LANGUAGES = [
-    ("uz", _("Uzbek")),
-    ("uzk", _("Uzbek cyrlic")),
+    ("uz-Latn", _("Uzbek")),
+    ("uz-Cyrl", _("Uzbek cyrlic")),
     ("ru", _("Russian")),
     ("en", _("English")),
+]
+
+LOCALE_PATHS = [
+   BASE_DIR / 'locale'
 ]
