@@ -8,3 +8,4 @@ django-crispy-forms
 crispy-bootstrap5
 django-imagekit
 aiogram
+django-rosetta
