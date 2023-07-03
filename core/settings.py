@@ -1,4 +1,3 @@
-
 from pathlib import Path
 from environs import Env
 from django.utils.translation import gettext_lazy as _
@@ -124,6 +123,15 @@ USE_I18N = True
 
 USE_TZ = True
 
+LANGUAGES = [
+    ("uz-Latn", _("Uzbek")),
+    ("ru", _("Russian")),
+    ("en", _("English")),
+]
+
+LOCALE_PATHS = [
+   BASE_DIR / 'locale'
+]
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
@@ -314,14 +322,3 @@ JAZZMIN_SETTINGS = {
     # "language_chooser": True,
 }
 
-
-LANGUAGES = [
-    ("uz-Latn", _("Uzbek")),
-    ("uz-Cyrl", _("Uzbek cyrlic")),
-    ("ru", _("Russian")),
-    ("en", _("English")),
-]
-
-LOCALE_PATHS = [
-   BASE_DIR / 'locale'
-]

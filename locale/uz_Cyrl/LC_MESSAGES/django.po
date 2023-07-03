@@ -8,29 +8,30 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-07-02 22:33+0000\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"POT-Creation-Date: 2023-07-03 00:05+0000\n"
+"PO-Revision-Date: 2023-07-03 08:05+0000\n"
+"Last-Translator:   <root@roo.root>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"X-Translated-Using: django-rosetta 0.9.9\n"
 
-#: core/settings.py:319
+#: core/settings.py:128
 msgid "Uzbek"
 msgstr ""
 
-#: core/settings.py:320
+#: core/settings.py:129
 msgid "Uzbek cyrlic"
 msgstr ""
 
-#: core/settings.py:321
+#: core/settings.py:130
 msgid "Russian"
 msgstr ""
 
-#: core/settings.py:322
+#: core/settings.py:131
 msgid "English"
 msgstr ""
 
@@ -40,7 +41,7 @@ msgstr ""
 
 #: templates/_base.html:11
 msgid "SIRDARYO-ZARAFSHON Irrigatsiya tizimlari havza boshqarmasi"
-msgstr ""
+msgstr "Крилда"
 
 #: venv/lib/python3.8/site-packages/ckeditor_uploader/forms.py:6
 msgid "Search files"
@@ -152,8 +153,8 @@ msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/core/validators.py:264
 msgid ""
-"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or "
-"hyphens."
+"Enter a valid “slug” consisting of Unicode letters, numbers, underscores, or"
+" hyphens."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/core/validators.py:276
@@ -353,15 +354,15 @@ msgstr ""
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1489
 #, python-format
 msgid ""
-"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD HH:MM[:ss[."
-"uuuuuu]][TZ] format."
+"“%(value)s” value has an invalid format. It must be in YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ] format."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1497
 #, python-format
 msgid ""
-"“%(value)s” value has the correct format (YYYY-MM-DD HH:MM[:ss[.uuuuuu]]"
-"[TZ]) but it is an invalid date/time."
+"“%(value)s” value has the correct format (YYYY-MM-DD "
+"HH:MM[:ss[.uuuuuu]][TZ]) but it is an invalid date/time."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1502
@@ -380,8 +381,8 @@ msgstr ""
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1789
 #, python-format
 msgid ""
-"“%(value)s” value has an invalid format. It must be in [DD] [[HH:]MM:]ss[."
-"uuuuuu] format."
+"“%(value)s” value has an invalid format. It must be in [DD] "
+"[[HH:]MM:]ss[.uuuuuu] format."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/db/models/fields/__init__.py:1793
@@ -540,7 +541,8 @@ msgid "Many-to-many relationship"
 msgstr ""
 
 #. Translators: If found as last label character, these punctuation
-#. characters will prevent the default label_suffix to be appended to the label
+#. characters will prevent the default label_suffix to be appended to the
+#. label
 #: venv/lib/python3.8/site-packages/django/forms/boundfield.py:184
 msgid ":?.!"
 msgstr ""
@@ -590,7 +592,8 @@ msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/forms/fields.py:622
 #, python-format
-msgid "Ensure this filename has at most %(max)d character (it has %(length)d)."
+msgid ""
+"Ensure this filename has at most %(max)d character (it has %(length)d)."
 msgid_plural ""
 "Ensure this filename has at most %(max)d characters (it has %(length)d)."
 msgstr[0] ""
@@ -698,7 +701,8 @@ msgid "The inline value did not match the parent instance."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/forms/models.py:1429
-msgid "Select a valid choice. That choice is not one of the available choices."
+msgid ""
+"Select a valid choice. That choice is not one of the available choices."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/forms/models.py:1568
@@ -1158,11 +1162,11 @@ msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/views/csrf.py:127
 msgid ""
-"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or "
-"including the “Referrer-Policy: no-referrer” header, please remove them. The "
-"CSRF protection requires the “Referer” header to do strict referer checking. "
-"If you’re concerned about privacy, use alternatives like <a rel=\"noreferrer"
-"\" …> for links to third-party sites."
+"If you are using the <meta name=\"referrer\" content=\"no-referrer\"> tag or"
+" including the “Referrer-Policy: no-referrer” header, please remove them. "
+"The CSRF protection requires the “Referer” header to do strict referer "
+"checking. If you’re concerned about privacy, use alternatives like <a "
+"rel=\"noreferrer\" …> for links to third-party sites."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/views/csrf.py:136
@@ -1213,8 +1217,8 @@ msgstr ""
 #: venv/lib/python3.8/site-packages/django/views/generic/dates.py:652
 #, python-format
 msgid ""
-"Future %(verbose_name_plural)s not available because %(class_name)s."
-"allow_future is False."
+"Future %(verbose_name_plural)s not available because "
+"%(class_name)s.allow_future is False."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/views/generic/dates.py:692
@@ -1270,10 +1274,10 @@ msgstr ""
 #: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:221
 #, python-format
 msgid ""
-"You are seeing this page because <a href=\"https://docs.djangoproject.com/en/"
-"%(version)s/ref/settings/#debug\" target=\"_blank\" rel=\"noopener"
-"\">DEBUG=True</a> is in your settings file and you have not configured any "
-"URLs."
+"You are seeing this page because <a "
+"href=\"https://docs.djangoproject.com/en/%(version)s/ref/settings/#debug\" "
+"target=\"_blank\" rel=\"noopener\">DEBUG=True</a> is in your settings file "
+"and you have not configured any URLs."
 msgstr ""
 
 #: venv/lib/python3.8/site-packages/django/views/templates/default_urlconf.html:229
