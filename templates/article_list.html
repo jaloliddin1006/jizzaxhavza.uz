@@ -6,9 +6,7 @@
 
 <section class="flex flex-wrap  bg-900 text-dark-200 w-full">
             {% for i in articles %}
-                {% if forloop.counter0|divisibleby:4 and not forloop.first %}
-                    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-4 gap-6 md:gap-8 lg:gap-12 xl:gap-16 items-stretch auto-rows-[1fr]">
-                {% endif %}
+
                 <article class="bg-white rounded-lg overflow-hidden shadow-md w-96 m-3">
                    
                         <div class="relative  overflow-hidden">
@@ -28,7 +26,7 @@
                                 <a class="hover:text-blue-800 transition duration-150 ease-in-out" href="{% url 'app:detail' category_id=i.category.id id=i.id %}">{{i.title}}.</a>
                             </h3>
                         </div>
-                        <p class="text-gray-400">{{ i.description|safe|escape |slice:"100" }}</p>
+                        <div class="line-clamp-3 text-gray-400">{{ i.description|safe|escape}}</div>
                         <div class="flex items-center mt-4">
                             <h6 class="mb-2 text-3l tracking-tight text-gray-900 dark:text-white"><div class="flex">{{i.date|date:"d M Y"}} | &nbsp;<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd" d="M15.1614 12.0531C15.1614 13.7991 13.7454 15.2141 11.9994 15.2141C10.2534 15.2141 8.83838 13.7991 8.83838 12.0531C8.83838 10.3061 10.2534 8.89111 11.9994 8.89111C13.7454 8.89111 15.1614 10.3061 15.1614 12.0531Z" stroke="#200E32" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
