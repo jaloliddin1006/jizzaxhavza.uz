@@ -303,7 +303,7 @@ dist
 .svelte-kit
 CACHE
 staticfiles
-static/src/output.css
+# static/src/output.css
 # migrations
 media
 # End of https://www.toptal.com/developers/gitignore/api/node
