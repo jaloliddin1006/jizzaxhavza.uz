@@ -304,6 +304,6 @@ dist
 CACHE
 staticfiles
 static/src/output.css
-migrations
+# migrations
 media
 # End of https://www.toptal.com/developers/gitignore/api/node

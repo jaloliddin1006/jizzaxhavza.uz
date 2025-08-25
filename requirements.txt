@@ -10,3 +10,4 @@ django-imagekit
 aiogram
 django-jazzmin
 django-rosetta
+marshmallow==3.13.0

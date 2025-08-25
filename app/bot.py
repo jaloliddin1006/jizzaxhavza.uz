@@ -1,4 +1,4 @@
-from aiogram import Bot, Dispatcher, types
+from aiogram import Bot, Dispatcher
 import asyncio
 
 
@@ -6,7 +6,7 @@ TOKEN = '6057515232:AAEU34QT-caJycclQgn_f17auaAL7QWFWy0'
 
 
 bot = Bot(token=TOKEN)
-dp = Dispatcher(bot)
+dp = Dispatcher()
 
 async def send_message_to_bot(chat_id, text):
     await bot.send_message(chat_id, text)
